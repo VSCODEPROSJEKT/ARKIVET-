@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Et digitalt arkiv fra år 2189</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Et digitalt arkiv fra år 2189</h1>
+
+  <audio id="bakgrunnslyd" src="lyd/etter-naturen-ambient.wav" loop></audio>
+  <button id="lydknapp" type="button" onclick="toggleLyd()" aria-pressed="false">Start bakgrunnslyd</button>
+
+  <section class="introduksjon">
+    <h2>Året 2189</h2>
+    <p id="introduksjonstekst" aria-live="polite">Jorden har forandret seg.</p>
+    <button id="introduksjonsknapp" type="button" onclick="nesteIntroduksjon()">Neste</button>
+  </section>
+
+  <main id="arkiv" hidden>
+    <p id="oppsummering">Du har valgt å bevare 0 av 3 arter.</p>
+    <p id="steg">Art 1 av 3</p>
+
+    <article id="art-0">
+      <h2>Art 01: Glasselgen</h2>
+      <p id="status-0" class="art-status">Ikke valgt</p>
+      <p>Når du hører navnet glasselgen, ser du kanskje for deg en elg laget av glass. Men glasselgen er nesten umulig å få øye på. Ingen har klart å dokumentere den, selv om noen mener de har sett den.</p>
+      <p>Den holder seg skjult om dagen og kommer fram om natten. Lys kan gjøre den synlig, men den oppdager lyskilden lenge før du rekker å se den, og forsvinner i mørket.</p>
+      <p>Likevel kan den ha stor betydning for klimaet. Noen mener at glasselgen bidrar til å binde karbon i skogen, men ingen vet helt hvordan. Hvis den finnes, kan den være viktigere enn vi tror.</p>
+      <button onclick="velgArt(0, true)">Bevar i arkivet</button>
+      <button onclick="velgArt(0, false)">La den forsvinne</button>
+      <p id="melding-0" aria-live="polite"></p>
+    </article>
+
+    <article id="art-1" hidden>
+      <h2>Art 02: Tåkefugl</h2>
+      <p id="status-1" class="art-status">Ikke valgt</p>
+      <p>Tåkefuglen er en sjelden blanding av måke og ørn. Den skal ha oppstått etter en uforklarlig mutasjon, og kan få et vingespenn på nesten to meter.</p>
+      <p>Ingen har sett den fly på en dag med sol og blå himmel. Tåkefuglen kommer bare fram når været er mørkt, trist og tåkete. Det er litt merkelig at en så vakker fugl helst viser seg i dårlig vær. Fjærene har fem klare og sterke farger, og når den flyr gjennom tåka, ser den ut som et lite lys som setter farge på de grå dagene.</p>
+      <p>Tåkefuglen har blitt vanligere de siste årene, men arten er fortsatt truet av utryddelse. Ingen vet helt hvorfor bestanden vokser, eller hva som gjør at den fortsatt er så sårbar. Kanskje er det nettopp tåka som hjelper den å holde seg skjult.</p>
+      <button onclick="velgArt(1, true)">Bevar i arkivet</button>
+      <button onclick="velgArt(1, false)">La den forsvinne</button>
+      <p id="melding-1" aria-live="polite"></p>
+    </article>
+
+    <article id="art-2" hidden>
+      <h2>Art 03: Svarteblomst</h2>
+      <p id="status-2" class="art-status">Ikke valgt</p>
+      <p>Svarteblomsten vokser bare om vinteren, rett ut av steiner. Den har store, svarte blader, en mørk stilk og en oransje midtdel. Den kan presse seg gjennom snøen for å nå dagslyset.</p>
+      <p>Blomsten er svært giftig for dyr, og flere dyr har dødd etter å ha spist den. Navnet kommer fra Svartedauden, fordi blomsten tar livet av mange dyr.</p>
+      <p>Likevel har Svarteblomsten en viktig rolle i skogen. Røttene holder steiner og jord på plass, og blomsten gir ly for små insekter gjennom vinteren. Derfor er det vanskelig å vite om den bør bevares eller fjernes fra arkivet.</p>
+      <button onclick="velgArt(2, true)">Bevar i arkivet</button>
+      <button onclick="velgArt(2, false)">La den forsvinne</button>
+      <p id="melding-2" aria-live="polite"></p>
+    </article>
+
+    <button id="neste" type="button" onclick="gaVidere()" hidden>Neste art</button>
+    <section id="avslutning" aria-live="polite" hidden>
+      <h2>Arkivets siste side</h2>
+      <div class="valgoversikt">
+        <div>
+          <h3>Bevart i arkivet</h3>
+          <ul id="bevarte-liste"></ul>
+        </div>
+        <div>
+          <h3>Slettet fra arkivet</h3>
+          <ul id="slettede-liste"></ul>
+        </div>
+      </div>
+      <label for="framtidsbeskjed">Skriv kort hvorfor du valgte slik. Hva vil du si til menneskene som kommer etter oss?</label>
+      <textarea id="framtidsbeskjed" rows="4" maxlength="300"></textarea>
+      <button type="button" onclick="lagreBeskjed()">Lagre beskjeden</button>
+      <div id="lagret-beskjed" hidden>
+        <p id="beskjedstekst"></p>
+        <p class="siste-ord">Denne beskjeden er alt framtiden har igjen etter deg.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="Script.js"></script>
+</body>
+</html>
